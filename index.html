@@ -8,113 +8,145 @@
     body {
       margin: 0;
       padding: 0;
-      font-family: 'Arial', sans-serif;
-      background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #000000, #1a1a1a);
       color: #fff;
       text-align: center;
+      overflow-x: hidden;
     }
 
     .container {
-      padding: 30px 20px;
-      max-width: 800px;
+      padding: 40px 20px;
+      max-width: 900px;
       margin: auto;
     }
 
     h1 {
-      font-size: 3em;
+      font-size: 3.5em;
       color: #ffcc00;
-      text-shadow: 0 0 10px #ff9900;
+      text-shadow: 0 0 25px #ff3300;
+      animation: flicker 1.5s infinite;
     }
 
-    .tagline {
-      font-size: 1.2em;
-      color: #ffffffcc;
-      margin-bottom: 20px;
+    @keyframes flicker {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .dice {
+      font-size: 100px;
+      animation: bounce 2s infinite;
+      margin: 20px 0;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-30px); }
     }
 
     .join-btn {
       display: inline-block;
-      margin: 20px auto;
-      padding: 15px 30px;
+      margin: 25px auto;
+      padding: 18px 40px;
       background: #00ffcc;
       color: #000;
-      font-size: 1.2em;
+      font-size: 1.3em;
       font-weight: bold;
-      border-radius: 10px;
+      border-radius: 12px;
       text-decoration: none;
-      box-shadow: 0 0 15px #00ffcc;
-      transition: 0.3s;
+      box-shadow: 0 0 20px #00ffcc;
+      transition: 0.3s ease;
     }
 
     .join-btn:hover {
       background: #00ccaa;
-      box-shadow: 0 0 25px #00ffcc;
+      box-shadow: 0 0 30px #00ffcc;
+      transform: scale(1.05);
+    }
+
+    .tagline {
+      font-size: 1.4em;
+      color: #ffffffdd;
+      margin-top: 10px;
+      margin-bottom: 25px;
     }
 
     .features, .rules {
       text-align: left;
-      margin-top: 30px;
+      margin: 40px 0;
+      background: #111;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px #333;
     }
 
     .features li, .rules li {
-      margin: 10px 0;
-      font-size: 1em;
-    }
-
-    .promo-img {
-      width: 100%;
-      max-width: 600px;
-      border-radius: 15px;
-      margin-top: 20px;
-      box-shadow: 0 0 25px #ffcc00aa;
+      font-size: 1.1em;
+      margin: 12px 0;
+      line-height: 1.6;
     }
 
     .footer {
       margin-top: 40px;
-      color: #aaa;
       font-size: 0.9em;
+      color: #888;
     }
 
     audio {
       display: none;
     }
+
+    .attention-text {
+      font-size: 1.2em;
+      margin-top: 20px;
+      color: #ff4444;
+      font-weight: bold;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); color: #ff4444; }
+      50% { transform: scale(1.1); color: #ff7777; }
+      100% { transform: scale(1); color: #ff4444; }
+    }
   </style>
 </head>
-<body>
+<body onload="document.getElementById('audio').play()">
   <div class="container">
     <h1>🎲 JOKER LUDO HUB 🎲</h1>
+
+    <div class="dice">🎲</div>
+
     <p class="tagline">
       India's Most Trusted Ludo Group Since 2016 <br>
-      <span style="color: #ffcc00; font-weight: bold;">2016 से चल रहा भरोसेमंद लूडो ग्रुप</span>
+      <span style="color: #ffcc00;">2016 से चल रहा भरोसेमंद लूडो ग्रुप</span>
     </p>
 
-    <a href="https://chat.whatsapp.com/FNotwtBMa27JSlQBrSRz2p" class="join-btn">JOIN GROUP NOW</a>
+    <a href="https://chat.whatsapp.com/FNotwtBMa27JSlQBrSRz2p" class="join-btn">👉 JOIN GROUP NOW 👈</a>
 
-    <img src="https://i.imgur.com/VTx7zEi.png" alt="Promo Poster" class="promo-img" />
-
-    <a href="https://chat.whatsapp.com/FNotwtBMa27JSlQBrSRz2p" class="join-btn">🌟 JOIN KARO ABHI! 🌟</a>
+    <p class="attention-text">JOIN KAROGE TABHI TO GAME JEETOGE!</p>
 
     <ul class="features">
-      <li>✅ Daily Ludo Matches - Subah se Raat tak</li>
-      <li>💸 Sirf 5% Commission - Baaki Sab Jeet</li>
-      <li>🎁 Instant Payout - PayTM/UPI</li>
-      <li>🔐 100% Trusted & Genuine - No Frauds</li>
+      <li>🔥 Daily Ludo Matches - Subah se Raat tak</li>
+      <li>💰 Sirf 5% Commission - Baaki Sab Jeet</li>
+      <li>💸 Instant Payout - PayTM/UPI/Bank</li>
+      <li>🔐 100% Trusted & Transparent</li>
     </ul>
 
     <div class="rules">
-      <h2 style="color: #ffcc00; text-align:center;">Game Rules (खेल के नियम)</h2>
+      <h2 style="color:#ffcc00;">🎯 Game Rules (खेल के नियम)</h2>
       <ul>
-        <li>⚫ Entry Fix hone ke baad Cancel allowed nahi hai</li>
+        <li>🚫 Entry fix hone ke baad Cancel allowed nahi</li>
         <li>⏰ Time par Match - Late hua toh Cancel</li>
-        <li>📷 Match ke baad Screenshot dena hoga</li>
+        <li>📷 Screenshot zaruri hai win ke baad</li>
         <li>❌ Hackers Blacklist honge</li>
-        <li>💰 Winner ko turant paisa milega</li>
+        <li>🏆 Jeetne par turant paisa milega</li>
       </ul>
     </div>
 
-    <a href="https://chat.whatsapp.com/FNotwtBMa27JSlQBrSRz2p" class="join-btn">👉 JOIN KARO, NAHI TO PATA HI NAHI CHALEGA!</a>
+    <a href="https://chat.whatsapp.com/FNotwtBMa27JSlQBrSRz2p" class="join-btn">✅ JOIN KARO ABHI — KYA SOCH RAHE HO!</a>
 
-    <p class="footer">© 2025 Joker Ludo Hub | Trusted Since 2016</p>
+    <p class="footer">© 2025 Joker Ludo Hub | Since 2016 | Trusted by 10,000+ Players</p>
 
     <audio id="audio" autoplay>
       <source src="https://github.com/srbhaiya/audio/raw/main/join.mp3" type="audio/mpeg">
