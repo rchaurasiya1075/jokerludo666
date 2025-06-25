@@ -1,27 +1,16 @@
-<body>
-  <!-- Background Video -->
-  <video autoplay muted loop playsinline id="bgVideo">
-    <source src="https://raw.githubusercontent.com/rchaurasiya1075/jokerludo666/main/Animated%20red%20neon%2080s%20retro%20synthwave%20DJ%20party%20instagram%20story.mp4" type="video/mp4" />
-  </video>
-
-  <!-- Overlay Text -->
-  <div id="overlay">
-    <h1 id="welcome">👋 Welcome!</h1>
-    <p>🎲 Trusted Ludo Group Since 2016 • Only 5% Commission • Daily Matches</p>
-    <button class="join-button" onclick="window.location.href='https://wa.me/YOUR_GROUP_LINK'">
-      Join WhatsApp Group
-    </button>
-  </div>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Welcome to Joker Ludo Hub</title>
   <style>
-    body, html {
+    html, body {
       margin: 0;
       padding: 0;
       height: 100%;
       overflow: hidden;
-      font-family: sans-serif;
+      font-family: Arial, sans-serif;
     }
-
     #bgVideo {
       position: fixed;
       right: 0;
@@ -31,21 +20,21 @@
       object-fit: cover;
       z-index: -1;
     }
-
     #overlay {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      color: white;
       text-align: center;
+      color: white;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 30px;
+      border-radius: 20px;
     }
-
     h1 {
       color: #00ffcc;
       font-size: 2.5rem;
     }
-
     .join-button {
       margin-top: 30px;
       padding: 15px 40px;
@@ -56,8 +45,27 @@
       border-radius: 10px;
       cursor: pointer;
     }
+    .join-button:hover {
+      background: #00cc7a;
+    }
   </style>
+</head>
+<body>
+  <!-- 🎥 Background Video -->
+  <video autoplay muted loop playsinline id="bgVideo">
+    <source src="https://raw.githubusercontent.com/rchaurasiya1075/jokerludo666/main/Animated%20red%20neon%2080s%20retro%20synthwave%20DJ%20party%20instagram%20story.mp4" type="video/mp4" />
+  </video>
 
+  <!-- 🔲 Overlay Content -->
+  <div id="overlay">
+    <h1 id="welcome">👋 Welcome!</h1>
+    <p>🎲 Trusted Ludo Group Since 2016 • Only 5% Commission • Daily Matches</p>
+    <button class="join-button" onclick="window.location.href='https://chat.whatsapp.com/FNotwtBMa27JSlQBrSRz2p'">
+      Join WhatsApp Group
+    </button>
+  </div>
+
+  <!-- 🧠 Personalized Welcome Script -->
   <script>
     const params = new URLSearchParams(window.location.search);
     const name = params.get('name');
@@ -66,3 +74,4 @@
     }
   </script>
 </body>
+</html>
