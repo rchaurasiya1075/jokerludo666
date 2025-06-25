@@ -6,28 +6,41 @@
   <style>
     body {
       margin: 0;
-      background: linear-gradient(to right, #000000, #1a1a1a);
-      color: white;
+      padding: 0;
+      background: linear-gradient(135deg, #0a0a0a, #1f1f1f);
       font-family: 'Segoe UI', sans-serif;
+      color: white;
       text-align: center;
-      padding: 20px;
     }
-    h1 {
-      font-size: 3rem;
+
+    header {
+      padding: 30px 20px 10px;
+      background: #000;
+      box-shadow: 0 0 20px #00ffcc;
+    }
+
+    header h1 {
+      font-size: 3.2rem;
       color: #00ffcc;
-      margin-bottom: 10px;
-      text-shadow: 0 0 10px #00ffcc;
+      text-shadow: 0 0 15px #00ffcc;
+      margin: 0;
     }
-    #nameForm {
+
+    #namePrompt {
       margin-top: 20px;
+      font-size: 1.2rem;
+      color: #ffcc00;
     }
+
     input {
       padding: 12px;
-      font-size: 20px;
+      font-size: 18px;
       border-radius: 8px;
       border: none;
-      width: 300px;
+      width: 280px;
+      margin-top: 20px;
     }
+
     .join-button {
       margin-top: 20px;
       padding: 15px 40px;
@@ -38,9 +51,11 @@
       border-radius: 10px;
       cursor: pointer;
     }
+
     .join-button:hover {
       background: #00cc7a;
     }
+
     #videoBox {
       display: none;
       margin: 30px auto;
@@ -49,48 +64,63 @@
       overflow: hidden;
       box-shadow: 0 0 20px #00ffcc;
     }
+
     video {
       width: 100%;
     }
+
     #info {
       display: none;
+      margin: 40px auto;
       background: #111;
-      margin-top: 40px;
       padding: 25px;
       border-radius: 15px;
       max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
+      box-shadow: 0 0 10px #00ffcc;
     }
+
     #info h2 {
       color: #ffcc00;
+      font-size: 2rem;
     }
+
     #info p {
+      font-size: 1.1rem;
       margin: 10px 0;
-      font-size: 18px;
     }
   </style>
 </head>
 <body>
-  <h1>🎲 JOKER LUDO GROUP</h1>
-  <p style="font-size: 1.2rem;">Joker Ludo Group में प्रवेश करने के लिए नीचे अपना नाम लिखें / Enter your name to join</p>
 
-  <!-- 🔊 Voice Loops -->
-  <audio id="enterVoice" autoplay loop>
-    <source src="enter_name.mp3" type="audio/mp3" />
+  <!-- 🔝 Page Title -->
+  <header>
+    <h1>🎲 JOKER LUDO GROUP</h1>
+  </header>
+
+  <!-- 👤 Enter Name Prompt -->
+  <p id="namePrompt">🎤 Joker Ludo Group में एंट्री के लिए कृपया अपना नाम लिखिए (Enter your name to join)</p>
+
+  <!-- 🔊 Audio -->
+  <audio id="introVoice" autoplay loop>
+    <source src="enter_name_real.mp3" type="audio/mp3" />
   </audio>
+
   <audio id="joinVoice" loop>
-    <source src="join_karo_raja.mp3" type="audio/mp3" />
+    <source src="join_karo_raja_real.mp3" type="audio/mp3" />
   </audio>
 
-  <!-- 👤 Name Input -->
+  <audio autoplay loop volume="0.2">
+    <source src="raja_jaee_na_bahrawa.mp3" type="audio/mp3" />
+  </audio>
+
+  <!-- 👤 Name Form -->
   <div id="nameForm">
-    <input type="text" id="nameInput" placeholder="Apna Naam Likhiye..." />
+    <input type="text" id="nameInput" placeholder="अपना नाम लिखिए..." />
     <br />
     <button class="join-button" onclick="submitName()">Continue</button>
   </div>
 
-  <!-- 🎬 Video -->
+  <!-- 🎬 Video Box -->
   <div id="videoBox">
     <video autoplay muted loop playsinline>
       <source src="https://raw.githubusercontent.com/rchaurasiya1075/jokerludo666/main/Animated%20red%20neon%2080s%20retro%20synthwave%20DJ%20party%20instagram%20story.mp4" type="video/mp4" />
@@ -102,14 +132,13 @@
     </div>
   </div>
 
-  <!-- 📃 Group Info -->
+  <!-- 📋 Group Info -->
   <div id="info">
     <h2>📋 Group Rules & Highlights</h2>
-    <p>✅ Trusted & Genuine Group Since 2016</p>
-    <p>🎯 Only 5% Commission — Lowest in India</p>
-    <p>💸 Daily Matches | ₹50 to ₹5000</p>
-    <p>⚡ Fast Withdrawals & Transparent Results</p>
-    <p>👨‍💻 24x7 Support | No Bots</p>
+    <p>✅ Trusted & Genuine Ludo Group Since 2016</p>
+    <p>🎯 Only 5% Commission | ₹50 to ₹5000 Daily Matches</p>
+    <p>⚡ Instant Payment | Transparent Results | Live Support</p>
+    <p>🤝 100% Manual Handling | No Bots | Pure Skill</p>
   </div>
 
   <!-- 💡 JS Logic -->
@@ -117,22 +146,22 @@
     function submitName() {
       const name = document.getElementById("nameInput").value.trim();
       if (!name) {
-        alert("Kripya apna naam daaliye");
+        alert("Kripya apna naam likhiye");
         return;
       }
 
+      document.querySelector("header h1").innerText = `👋 Welcome ${name} to Joker Ludo Hub!`;
       document.getElementById("nameForm").style.display = "none";
       document.getElementById("videoBox").style.display = "block";
       document.getElementById("info").style.display = "block";
 
-      document.querySelector("h1").innerText = `👋 Welcome ${name} to Joker Ludo Hub!`;
-
-      // Stop enter name voice, play join karo raja
-      document.getElementById("enterVoice").pause();
+      // Voice change
+      document.getElementById("introVoice").pause();
       const joinVoice = document.getElementById("joinVoice");
       joinVoice.currentTime = 0;
       joinVoice.play();
     }
   </script>
+
 </body>
 </html>
