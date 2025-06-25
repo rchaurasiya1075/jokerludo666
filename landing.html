@@ -1,0 +1,68 @@
+<body>
+  <!-- Background Video -->
+  <video autoplay muted loop playsinline id="bgVideo">
+    <source src="https://raw.githubusercontent.com/rchaurasiya1075/jokerludo666/main/Animated%20red%20neon%2080s%20retro%20synthwave%20DJ%20party%20instagram%20story.mp4" type="video/mp4" />
+  </video>
+
+  <!-- Overlay Text -->
+  <div id="overlay">
+    <h1 id="welcome">👋 Welcome!</h1>
+    <p>🎲 Trusted Ludo Group Since 2016 • Only 5% Commission • Daily Matches</p>
+    <button class="join-button" onclick="window.location.href='https://wa.me/YOUR_GROUP_LINK'">
+      Join WhatsApp Group
+    </button>
+  </div>
+
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: sans-serif;
+    }
+
+    #bgVideo {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    #overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      text-align: center;
+    }
+
+    h1 {
+      color: #00ffcc;
+      font-size: 2.5rem;
+    }
+
+    .join-button {
+      margin-top: 30px;
+      padding: 15px 40px;
+      font-size: 20px;
+      background: #00ff99;
+      color: black;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+  </style>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const name = params.get('name');
+    if (name) {
+      document.getElementById("welcome").innerText = `👋 Welcome ${name} to Joker Ludo Hub!`;
+    }
+  </script>
+</body>
