@@ -108,10 +108,6 @@
     <source src="join_karo_raja.mp3" type="audio/mp3">
   </audio>
 
-  <audio id="bgMusic" autoplay loop>
-    <source src="raja_jaee_na_bahrawa.mp3" type="audio/mp3">
-  </audio>
-
   <!-- 🧍 Name Form -->
   <div id="nameForm">
     <input type="text" id="nameInput" placeholder="Apna Naam Likhiye...">
@@ -142,6 +138,19 @@
 
   <!-- 🔧 JS -->
   <script>
+    // Random Bhojpuri Song Playlist
+    const songs = [
+      "song1.mp3",
+      "song2.mp3",
+      "song3.mp3"
+    ];
+    const randomSong = songs[Math.floor(Math.random() * songs.length)];
+
+    const bgMusic = new Audio(randomSong);
+    bgMusic.loop = true;
+    bgMusic.volume = 0.3;
+    bgMusic.play();
+
     function submitName() {
       const name = document.getElementById("nameInput").value.trim();
       if (!name) {
