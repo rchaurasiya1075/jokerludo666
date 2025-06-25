@@ -100,7 +100,7 @@
   <p id="namePrompt">🎤 Joker Ludo Group में प्रवेश के लिए अपना नाम दर्ज करें (Enter your name)</p>
 
   <!-- 🔉 Audio: Background Bhojpuri Song -->
-  <audio id="bgMusic" autoplay loop>
+  <audio id="bgMusic" loop>
     <source src="Join the Group Raja Ji.mp3" type="audio/mp3">
   </audio>
 
@@ -142,12 +142,8 @@
     <p>🕹️ Real Players | No Bots | Full Support</p>
   </div>
 
-  <!-- 🔧 JS -->
+  <!-- 🔧 JavaScript Code -->
   <script>
-    // Set volume for background music
-    const bgMusic = document.getElementById('bgMusic');
-    bgMusic.volume = 0.2;
-
     function submitName() {
       const name = document.getElementById("nameInput").value.trim();
       if (!name) {
@@ -155,16 +151,24 @@
         return;
       }
 
+      // Welcome Message Update
       document.querySelector("header h1").innerText = `👋 Welcome ${name} to Joker Ludo Hub!`;
 
+      // Hide form, show video and rules
       document.getElementById("nameForm").style.display = "none";
       document.getElementById("videoBox").style.display = "block";
       document.getElementById("info").style.display = "block";
 
+      // Pause intro voice, play "Join karo na raja"
       document.getElementById("introVoice").pause();
       const joinVoice = document.getElementById("joinVoice");
       joinVoice.currentTime = 0;
       joinVoice.play();
+
+      // Play background Bhojpuri song full volume
+      const bgMusic = document.getElementById("bgMusic");
+      bgMusic.volume = 1.0;
+      bgMusic.play();
     }
   </script>
 
