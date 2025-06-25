@@ -1,48 +1,48 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Joker Ludo Group</title>
   <style>
     body {
       margin: 0;
       padding: 0;
-      background: linear-gradient(to right, #000000, #1f1f1f);
+      background: linear-gradient(to right, #0d0d0d, #1a1a1a);
       font-family: 'Segoe UI', sans-serif;
       color: white;
       text-align: center;
     }
 
     header {
-      padding: 20px;
+      padding: 25px;
       background: #000;
-      box-shadow: 0 0 10px #00ffcc;
+      box-shadow: 0 0 12px #00ffcc;
     }
 
     header h1 {
       font-size: 3.5rem;
       color: #00ffcc;
-      text-shadow: 0 0 15px #00ffcc;
+      text-shadow: 0 0 20px #00ffcc;
     }
 
     #namePrompt {
       margin-top: 30px;
-      font-size: 1.3rem;
+      font-size: 1.4rem;
       color: #ffcc00;
     }
 
     input {
       margin-top: 20px;
-      padding: 12px;
+      padding: 14px;
       font-size: 18px;
-      border-radius: 8px;
+      border-radius: 10px;
       border: none;
       width: 280px;
     }
 
     .join-button {
       margin-top: 20px;
-      padding: 14px 40px;
+      padding: 14px 35px;
       font-size: 20px;
       background: #00ff99;
       color: black;
@@ -101,14 +101,14 @@
 
   <!-- 🔉 Audio -->
   <audio id="introVoice" autoplay loop>
-    <source src="enter_name_real.mp3" type="audio/mp3">
+    <source src="enter_name.mp3" type="audio/mp3">
   </audio>
 
   <audio id="joinVoice" loop>
-    <source src="join_karo_raja_real.mp3" type="audio/mp3">
+    <source src="join_karo_raja.mp3" type="audio/mp3">
   </audio>
 
-  <audio autoplay loop volume="0.2">
+  <audio id="bgMusic" autoplay loop>
     <source src="raja_jaee_na_bahrawa.mp3" type="audio/mp3">
   </audio>
 
@@ -122,7 +122,7 @@
   <!-- 🎬 Video Block -->
   <div id="videoBox">
     <video autoplay muted loop playsinline>
-      <source src="https://raw.githubusercontent.com/rchaurasiya1075/jokerludo666/main/Animated%20red%20neon%2080s%20retro%20synthwave%20DJ%20party%20instagram%20story.mp4" type="video/mp4">
+      <source src="Animated red neon 80s retro synthwave DJ party instagram story.mp4" type="video/mp4">
     </video>
     <div style="margin-top: 20px;">
       <button class="join-button" onclick="window.location.href='https://chat.whatsapp.com/FNotwtBMa27JSlQBrSRz2p'">
@@ -149,15 +149,12 @@
         return;
       }
 
-      // Update Title
       document.querySelector("header h1").innerText = `👋 Welcome ${name} to Joker Ludo Hub!`;
 
-      // Show other sections
       document.getElementById("nameForm").style.display = "none";
       document.getElementById("videoBox").style.display = "block";
       document.getElementById("info").style.display = "block";
 
-      // Switch voice
       document.getElementById("introVoice").pause();
       const joinVoice = document.getElementById("joinVoice");
       joinVoice.currentTime = 0;
