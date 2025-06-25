@@ -2,161 +2,136 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Joker Ludo Hub</title>
   <style>
     body {
       margin: 0;
       padding: 0;
+      background: linear-gradient(to right, #000000, #1a1a1a);
+      color: white;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #000000, #1a1a1a);
-      color: #fff;
       text-align: center;
-      overflow-x: hidden;
+      padding: 30px 10px;
     }
-
-    .container {
-      padding: 40px 20px;
-      max-width: 900px;
-      margin: auto;
-    }
-
     h1 {
-      font-size: 3.5em;
-      color: #ffcc00;
-      text-shadow: 0 0 25px #ff3300;
-      animation: flicker 1.5s infinite;
+      color: #00ffcc;
+      font-size: 2.5rem;
     }
-
-    @keyframes flicker {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.4; }
-    }
-
-    .dice {
-      font-size: 100px;
-      animation: bounce 2s infinite;
-      margin: 20px 0;
-    }
-
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-30px); }
-    }
-
-    .join-btn {
-      display: inline-block;
-      margin: 25px auto;
-      padding: 18px 40px;
-      background: #00ffcc;
-      color: #000;
-      font-size: 1.3em;
-      font-weight: bold;
-      border-radius: 12px;
-      text-decoration: none;
+    #videoBox {
+      margin: 30px auto;
+      max-width: 90%;
+      width: 500px;
+      border-radius: 20px;
+      overflow: hidden;
       box-shadow: 0 0 20px #00ffcc;
-      transition: 0.3s ease;
     }
-
-    .join-btn:hover {
-      background: #00ccaa;
-      box-shadow: 0 0 30px #00ffcc;
-      transform: scale(1.05);
+    video {
+      width: 100%;
+      height: auto;
     }
-
-    .tagline {
-      font-size: 1.4em;
-      color: #ffffffdd;
-      margin-top: 10px;
-      margin-bottom: 25px;
+    .join-button {
+      margin-top: 20px;
+      padding: 15px 40px;
+      font-size: 20px;
+      background: #00ff99;
+      color: black;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
     }
-
-    .features, .rules {
-      text-align: left;
-      margin: 40px 0;
+    .join-button:hover {
+      background: #00cc7a;
+    }
+    #info {
+      margin-top: 50px;
       background: #111;
       padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 0 20px #333;
+      border-radius: 20px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
     }
-
-    .features li, .rules li {
-      font-size: 1.1em;
-      margin: 12px 0;
-      line-height: 1.6;
+    input {
+      padding: 10px;
+      font-size: 18px;
+      border-radius: 8px;
+      border: none;
+      width: 250px;
+      margin-top: 10px;
     }
-
-    .footer {
-      margin-top: 40px;
-      font-size: 0.9em;
-      color: #888;
-    }
-
-    audio {
-      display: none;
-    }
-
-    .attention-text {
-      font-size: 1.2em;
-      margin-top: 20px;
-      color: #ff4444;
-      font-weight: bold;
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); color: #ff4444; }
-      50% { transform: scale(1.1); color: #ff7777; }
-      100% { transform: scale(1); color: #ff4444; }
+    #nameForm {
+      margin-bottom: 30px;
     }
   </style>
 </head>
-<body onload="document.getElementById('audio').play()">
-  <div class="container">
-    <h1>🎲 JOKER LUDO HUB 🎲</h1>
+<body>
 
-    <div class="dice">🎲</div>
-
-    <p class="tagline">
-      India's Most Trusted Ludo Group Since 2016 <br>
-      <span style="color: #ffcc00;">2016 से चल रहा भरोसेमंद लूडो ग्रुप</span>
-    </p>
-
-    <a href="https://chat.whatsapp.com/FNotwtBMa27JSlQBrSRz2p" class="join-btn">👉 JOIN GROUP NOW 👈</a>
-
-    <p class="attention-text">JOIN KAROGE TABHI TO GAME JEETOGE!</p>
-
-    <ul class="features">
-      <li>🔥 Daily Ludo Matches - Subah se Raat tak</li>
-      <li>💰 Sirf 5% Commission - Baaki Sab Jeet</li>
-      <li>💸 Instant Payout - PayTM/UPI/Bank</li>
-      <li>🔐 100% Trusted & Transparent</li>
-    </ul>
-
-    <div class="rules">
-      <h2 style="color:#ffcc00;">🎯 Game Rules (खेल के नियम)</h2>
-      <ul>
-        <li>🚫 Entry fix hone ke baad Cancel allowed nahi</li>
-        <li>⏰ Time par Match - Late hua toh Cancel</li>
-        <li>📷 Screenshot zaruri hai win ke baad</li>
-        <li>❌ Hackers Blacklist honge</li>
-        <li>🏆 Jeetne par turant paisa milega</li>
-      </ul>
-    </div>
-
-    <a href="https://chat.whatsapp.com/FNotwtBMa27JSlQBrSRz2p" class="join-btn">✅ JOIN KARO ABHI — KYA SOCH RAHE HO!</a>
-
-    <p class="footer">© 2025 Joker Ludo Hub | Since 2016 | Trusted by 10,000+ Players</p>
-
-    <audio id="audio" autoplay>
-      <source src="https://github.com/srbhaiya/audio/raw/main/join.mp3" type="audio/mpeg">
-    </audio>
+  <h1 id="welcomeText">🎤 Kripya apna naam daaliye</h1>
+  
+  <!-- 👤 Naam Input -->
+  <div id="nameForm">
+    <input type="text" id="nameInput" placeholder="Aapka Naam" />
+    <br />
+    <button class="join-button" onclick="handleName()">Continue</button>
   </div>
 
+  <!-- 🎬 Video Box -->
+  <div id="videoBox" style="display: none;">
+    <video autoplay muted loop playsinline>
+      <source src="https://raw.githubusercontent.com/rchaurasiya1075/jokerludo666/main/Animated%20red%20neon%2080s%20retro%20synthwave%20DJ%20party%20instagram%20story.mp4" type="video/mp4" />
+    </video>
+  </div>
+
+  <!-- 🔘 Join Button -->
+  <div id="joinBtn" style="display: none;">
+    <button class="join-button" onclick="window.location.href='https://chat.whatsapp.com/FNotwtBMa27JSlQBrSRz2p'">
+      ✅ Join WhatsApp Group
+    </button>
+  </div>
+
+  <!-- 📃 Info Box -->
+  <div id="info" style="display: none;">
+    <h2>📢 About Joker Ludo Hub</h2>
+    <p>🎲 Trusted & Genuine Ludo Group Since 2016</p>
+    <p>💰 Only 5% Commission | Daily Matches | Fast Payments</p>
+    <p>🛡️ Transparency | Trust | Instant Support</p>
+  </div>
+
+  <!-- 🧠 Script -->
   <script>
-    window.onload = function () {
-      document.getElementById('audio').play();
-    };
+    function speak(text) {
+      const synth = window.speechSynthesis;
+      if (!synth) return;
+      const utter = new SpeechSynthesisUtterance(text);
+      utter.lang = 'hi-IN';
+      utter.rate = 1;
+      const voices = synth.getVoices();
+      utter.voice = voices.find(v => v.lang === 'hi-IN') || voices[0];
+      synth.speak(utter);
+    }
+
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        speak('Namaste! Kripya apna naam enter kijiye.');
+      }, 500);
+    });
+
+    function handleName() {
+      const name = document.getElementById("nameInput").value.trim();
+      if (!name) {
+        alert("Naam daaliye");
+        speak("Kripya apna naam likhiye");
+        return;
+      }
+      // Hide form, show video and other parts
+      document.getElementById("welcomeText").innerText = `👋 Welcome ${name} to Joker Ludo Hub!`;
+      document.getElementById("nameForm").style.display = "none";
+      document.getElementById("videoBox").style.display = "block";
+      document.getElementById("joinBtn").style.display = "block";
+      document.getElementById("info").style.display = "block";
+      speak(`Swagat hai ${name} Joker Ludo Hub me`);
+    }
   </script>
+
 </body>
 </html>
