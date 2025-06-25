@@ -99,11 +99,17 @@
   <!-- 📝 Name Prompt -->
   <p id="namePrompt">🎤 Joker Ludo Group में प्रवेश के लिए अपना नाम दर्ज करें (Enter your name)</p>
 
-  <!-- 🔉 Audio -->
+  <!-- 🔉 Audio: Background Bhojpuri Song -->
+  <audio id="bgMusic" autoplay loop>
+    <source src="Join the Group Raja Ji.mp3" type="audio/mp3">
+  </audio>
+
+  <!-- 🔉 Audio: Voice Prompt -->
   <audio id="introVoice" autoplay loop>
     <source src="enter_name.mp3" type="audio/mp3">
   </audio>
 
+  <!-- 🔉 Audio: After Welcome -->
   <audio id="joinVoice" loop>
     <source src="join_karo_raja.mp3" type="audio/mp3">
   </audio>
@@ -138,18 +144,9 @@
 
   <!-- 🔧 JS -->
   <script>
-    // Random Bhojpuri Song Playlist
-    const songs = [
-      "song1.mp3",
-      "song2.mp3",
-      "song3.mp3"
-    ];
-    const randomSong = songs[Math.floor(Math.random() * songs.length)];
-
-    const bgMusic = new Audio(randomSong);
-    bgMusic.loop = true;
-    bgMusic.volume = 0.3;
-    bgMusic.play();
+    // Set volume for background music
+    const bgMusic = document.getElementById('bgMusic');
+    bgMusic.volume = 0.2;
 
     function submitName() {
       const name = document.getElementById("nameInput").value.trim();
