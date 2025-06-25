@@ -3,7 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <title>Joker Ludo Group</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
+    * {
+      box-sizing: border-box;
+    }
     body {
       margin: 0;
       padding: 0;
@@ -20,15 +24,16 @@
     }
 
     header h1 {
-      font-size: 3.5rem;
+      font-size: 2.5rem;
       color: #00ffcc;
       text-shadow: 0 0 20px #00ffcc;
     }
 
     #namePrompt {
       margin-top: 30px;
-      font-size: 1.4rem;
+      font-size: 1.2rem;
       color: #ffcc00;
+      padding: 0 20px;
     }
 
     input {
@@ -37,7 +42,8 @@
       font-size: 18px;
       border-radius: 10px;
       border: none;
-      width: 280px;
+      width: 90%;
+      max-width: 300px;
     }
 
     .join-button {
@@ -58,6 +64,7 @@
     #videoBox {
       display: none;
       margin: 30px auto;
+      width: 95%;
       max-width: 600px;
       border-radius: 20px;
       overflow: hidden;
@@ -74,54 +81,47 @@
       background: #111;
       padding: 20px;
       border-radius: 15px;
+      width: 95%;
       max-width: 800px;
       box-shadow: 0 0 10px #00ffcc;
     }
 
     #info h2 {
       color: #ffcc00;
-      font-size: 2rem;
+      font-size: 1.8rem;
     }
 
     #info p {
-      font-size: 1.1rem;
+      font-size: 1rem;
       margin: 10px 0;
     }
   </style>
 </head>
 <body>
 
-  <!-- 🎲 Group Title -->
   <header>
     <h1>🎲 JOKER LUDO GROUP</h1>
   </header>
 
-  <!-- 📝 Name Prompt -->
   <p id="namePrompt">🎤 Joker Ludo Group में प्रवेश के लिए अपना नाम दर्ज करें (Enter your name)</p>
 
-  <!-- 🔉 Audio: Background Bhojpuri Song -->
-  <audio id="bgMusic" loop>
-    <source src="Join the Group Raja Ji.mp3" type="audio/mp3">
-  </audio>
+  <!-- 🎵 Multiple Random Songs -->
+  <audio id="bgMusic" loop></audio>
 
-  <!-- 🔉 Audio: Voice Prompt -->
   <audio id="introVoice" autoplay loop>
     <source src="enter_name.mp3" type="audio/mp3">
   </audio>
 
-  <!-- 🔉 Audio: After Welcome -->
   <audio id="joinVoice" loop>
     <source src="join_karo_raja.mp3" type="audio/mp3">
   </audio>
 
-  <!-- 🧍 Name Form -->
   <div id="nameForm">
     <input type="text" id="nameInput" placeholder="Apna Naam Likhiye...">
     <br>
     <button class="join-button" onclick="submitName()">Continue</button>
   </div>
 
-  <!-- 🎬 Video Block -->
   <div id="videoBox">
     <video autoplay muted loop playsinline>
       <source src="Animated red neon 80s retro synthwave DJ party instagram story.mp4" type="video/mp4">
@@ -133,7 +133,6 @@
     </div>
   </div>
 
-  <!-- 📋 Group Rules -->
   <div id="info">
     <h2>📋 Group Rules & Highlights</h2>
     <p>✅ Trusted & Genuine Group Since 2016</p>
@@ -142,8 +141,20 @@
     <p>🕹️ Real Players | No Bots | Full Support</p>
   </div>
 
-  <!-- 🔧 JavaScript Code -->
   <script>
+    const songs = [
+      "Join the Group Raja Ji.mp3",
+      "Join the Group Raja Ji (1).mp3",
+      "Sir Joker Ludo Group.mp3",
+      "Sir Joker Ludo Group (1).mp3",
+      "bhojpuri_loop_sample.mp3"
+    ];
+
+    const randomSong = songs[Math.floor(Math.random() * songs.length)];
+    const bgMusic = document.getElementById('bgMusic');
+    bgMusic.src = randomSong;
+    bgMusic.volume = 1.0;
+
     function submitName() {
       const name = document.getElementById("nameInput").value.trim();
       if (!name) {
@@ -151,25 +162,22 @@
         return;
       }
 
-      // Welcome Message Update
       document.querySelector("header h1").innerText = `👋 Welcome ${name} to Joker Ludo Hub!`;
-
-      // Hide form, show video and rules
       document.getElementById("nameForm").style.display = "none";
       document.getElementById("videoBox").style.display = "block";
       document.getElementById("info").style.display = "block";
 
-      // Pause intro voice, play "Join karo na raja"
       document.getElementById("introVoice").pause();
       const joinVoice = document.getElementById("joinVoice");
       joinVoice.currentTime = 0;
       joinVoice.play();
-
-      // Play background Bhojpuri song full volume
-      const bgMusic = document.getElementById("bgMusic");
-      bgMusic.volume = 1.0;
       bgMusic.play();
     }
+
+    // Try autoplay on load
+    window.addEventListener('load', () => {
+      bgMusic.play().catch(() => {});
+    });
   </script>
 
 </body>
