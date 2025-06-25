@@ -48,13 +48,15 @@
 
     .join-button {
       margin-top: 20px;
-      padding: 14px 35px;
+      padding: 14px;
       font-size: 20px;
       background: #00ff99;
       color: black;
       border: none;
       border-radius: 10px;
       cursor: pointer;
+      width: 90%;
+      max-width: 300px;
     }
 
     .join-button:hover {
@@ -117,7 +119,7 @@
   </audio>
 
   <div id="nameForm">
-    <input type="text" id="nameInput" placeholder="Apna Naam Likhiye...">
+    <input type="text" id="nameInput" placeholder="Apna Naam Likhiye..." onkeydown="handleKey(event)">
     <br>
     <button class="join-button" onclick="submitName()">Continue</button>
   </div>
@@ -155,12 +157,30 @@
     bgMusic.src = randomSong;
     bgMusic.volume = 1.0;
 
+    // Replace with your actual bot token and chat ID
+    const botToken = "YOUR_BOT_TOKEN_HERE";
+    const chatId = "YOUR_CHAT_ID_HERE";
+
+    function sendTelegramMessage(name) {
+      const msg = `🎲 New User Joined: ${name}`;
+      fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+        method: "POST",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          chat_id: chatId,
+          text: msg
+        })
+      });
+    }
+
     function submitName() {
       const name = document.getElementById("nameInput").value.trim();
       if (!name) {
         alert("Kripya apna naam likhiye");
         return;
       }
+
+      sendTelegramMessage(name);
 
       document.querySelector("header h1").innerText = `👋 Welcome ${name} to Joker Ludo Hub!`;
       document.getElementById("nameForm").style.display = "none";
@@ -174,7 +194,12 @@
       bgMusic.play();
     }
 
-    // Try autoplay on load
+    function handleKey(event) {
+      if (event.key === "Enter") {
+        submitName();
+      }
+    }
+
     window.addEventListener('load', () => {
       bgMusic.play().catch(() => {});
     });
